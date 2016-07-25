@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="OneStop">
+<head>
+	<title>OneStop</title>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<body>
+	<header class="homeHeader" >
+    <button class="btn btn-default log" ng-click='signup()'>Sign Up</button> 
+    <button class="btn btn-default log" ng-click='log()'>Log In</button>
+    <h1 id="title" class="group">OneStop</h1>
+    <a id='home' class="nav" href="#">Home</a>
+    <a id='venue' class="nav" href="#">Businnes1</a>
+    <a id="wedPla" class="nav" href="#">Businnes1</a>
+    <a id="florist" class="nav" href="#">Businnes1</a>
+    <a id="photo" class="nav" href="#">Businnes1</a>
+   </header>
+	
+	
+	
+	<div ui-view></div>
+
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/login/auth.js"></script>
+</body>
+</html>

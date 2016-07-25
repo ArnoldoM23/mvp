@@ -1,0 +1,235 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/*
+  ========================================
+  Typography
+  ========================================
+*/
+
+h1, h2, h3, h4 {
+  color: #648880;
+}
+h1, h3, h4, h5, p {
+  margin-bottom: 22px;
+}
+h1 {
+  font-size: 36px;
+  line-height: 44px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 44px;
+}
+h3 {
+  font-size: 21px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  color: #a9b2b9;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+strong {
+  font-weight: 400;
+}
+cite,
+em {
+  font-style: italic;
+}
+
+/*
+  ========================================
+  Clearfix
+  ========================================
+*/
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+
+/*
+ Navigation
+*/
+
+
+.homeHeader {
+  background: #ff0000 ;
+  background: linear-gradient(to bottom right, #3d4cf4, #3ed1d6, #10edcc);
+  height: 200px;
+  padding-top: 24px; 
+  text-align: center;
+}
+.homeNav {
+  text-align: center;
+  color: white;
+  height: 35px; 
+  background: #ff0000 ;
+  background: linear-gradient(to bottom right, #3d4cf4, #3ed1d6, #10edcc);
+  border-bottom: solid gray 1px;
+}
+
+.nav {
+  border-right: solid gray 1px;
+  border-radius: 8px;
+  background-color: white;
+  color: #09D9E8;
+  opacity: .5;
+  display: inline-block;
+  width: 15%;
+  height: 45px;
+  text-align: center;
+  font-size: 24px;
+  position: relative;
+  top: 45px;
+}
+.noBorder {
+  border: none;
+}
+
+#title {
+  font-size: 150px;
+  text-align: center;
+  padding-top: -35px;
+}
+
+
+.homeFooter{
+  background: #ff0000 ;
+  background: linear-gradient(to bottom right, #3d4cf4, #3d4cf4, #3d4cf4);
+  height: 40px;
+}
+
+/*
+  ========================================
+  Buttons
+  ========================================
+*/
+
+.btn {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.btn-default {
+  background: #20db4f;
+  opacity: .5;
+  padding: 11px 30px;
+  font-size: 14px;
+}
+
+.log {
+  margin-right: 15px;
+  float: right;
+}
+
+/*
+  ========================================
+  venue home styling
+  ========================================
+*/
+.mainContainer{
+  height: 100%;
+  text-align: center;
+}
+.venueHome {
+  margin: 0 auto;
+  height: 345px;
+  width: 550px;
+  text-align: center;
+}
+
+.venueTitle {
+  text-align: center;
+}
+.venueMessage {
+  font-size: 24px;
+  width: 700px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/*
+  ========================================
+  wedding planer home styling
+  ========================================
+*/
+
+.wedPlaDiv {
+  margin: 0 auto;
+  background-color: skyblue;
+  height: 275px;
+  width: 355px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  font-size: 22px;
+}
+
+.left {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+
+.right {
+  float: right;
+  height: 100%;
+  width: 50%;
+}
+
+.login {
+  text-align: center;
+  height: 400px;
+  width: 300px;
+  margin: 0 auto ;
+}
+
+.login input {
+  margin-top: 10px;
+  width: 295px;
+  height: 25px;
+}
+.login h1 {
+  font-size: 55px;
+}

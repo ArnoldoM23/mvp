@@ -164,7 +164,7 @@ em {
   venue home styling
   ========================================
 */
-#homeTitle {
+.homeTitle {
   text-align: center;
   color: purple;
 }
@@ -199,7 +199,7 @@ em {
 
 .mainBusDiv{
   margin: 0 auto;
-  background-color: purple;
+  background-color: #D2D2D2;
   height: 385px;
   width: 335px;
   border-radius: 7px;
@@ -247,7 +247,7 @@ em {
 .login input {
   margin-top: 10px;
   width: 295px;
-  height: 25px;
+  height: 40px;
 }
 .login h1 {
   font-size: 55px;

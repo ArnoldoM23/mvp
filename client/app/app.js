@@ -24,28 +24,32 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 
 
 
-
-
 	.state('login', {
 		url: '/login',
 		templateUrl: 'app/login/login.html',
-		resolve: {
-			userService: function($http){
-				return $http.get('/login');
-			}
-		},
-		controller: function($scope, userService, $location){
-				$scope.testing = userService.data;
-				
-				console.log("data in login state", $scope.testing )
+		controller: function($scope, $http, $location){
 				$scope.username = '';
 				$scope.password = '';
 				$scope.submit = function(username, password){
 					console.log('username==', username, "password==", password)
-					if ($scope.testing[0].username === username && $scope.testing[0].password === password) {
-						console.log("location in if", $location)
+
+					$scope.currentUser = {
+						username: username,
+						password: password
+					};
+					// make a post request
+					$http({
+						method: "POST",
+						url: '/login',
+						data: $scope.currentUser
+					}).then(function(resp){
+						console.log("resp++++++", resp);
 						$location.path('/home')
-					}
+					})
+					.catch(function(error){
+		        console.log(error)
+		    	});
+		    	//clear the inputs
 					$scope.username = '';
 					$scope.password = '';
 
@@ -57,24 +61,38 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 	.state('signup', {
 		url: '/signup',
 		templateUrl: 'app/login/signup.html',
-		resolve: {
-			userService: function($http){
-				return $http.get('/signup');
-			}
-		},
-		controller: function($scope, userService){
-				$scope.testing = userService.data;
+		controller: function($scope, $http, $location){
 				$scope.username = '';
-				$scope.password = '';
 				$scope.email = '';
-				$scope.submit = function(username, email, password){
-					console.log('username==', username,'email===', email, "password==", password)
+				$scope.password = '';
+				// create user and http requestf
+				$scope.submit = function(usern, email, passwrd){
+					$scope.newUser = {
+						username: usern,
+						password: passwrd,
+						email: email
+					}
+
+					$http({
+						method: 'POST',
+						url: '/signup',
+						contentType: 'application/json',
+						data: $scope.newUser
+					})
+					.then(function(resp){
+						console.log('this is resp++++',resp)
+						$location.path('/home')
+					})
+					.catch(function(error){
+		        console.log(error)
+		    	});
+
 					$scope.username = '';
-					$scope.password = '';
 					$scope.email = '';
+					$scope.password = '';
 				}
 		},
-		controllerAs: 'LoginCtrl'
+		controllerAs: 'SignupCtrl'
 	})
 	.state('business1', {
 		url: '/business1',
@@ -87,9 +105,47 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 		controller: function($scope, userService){
 				// $scope.testing = userService.data;
 		},
-		controllerAs: 'HomeController'
+		controllerAs: 'business1Ctrl'
 	})
-	
+	.state('business2', {
+		url: '/business2',
+		templateUrl: 'app/business/business2.html',
+		resolve: {
+			userService: function($http){
+				// return $http.get('/business2');
+			}
+		}, 
+		controller: function($scope, userService){
+			// whatever your controller will do.
+		},
+		controllerAs: 'business2Ctrl'
+	})
+	.state('business3',{
+		url:'/business3',
+		templateUrl: 'app/business/business3.html',
+		resolve:{
+			userService: function($http){
+				// return $http.get('/business3')
+			}
+		},
+		controller: function(){
+			// whatever your controller will do
+		},
+		controllerAs: 'business3Ctrl'
+	})
+	.state('business4',{
+		url:'/business4',
+		templateUrl: 'app/business/business4.html',
+		resolve:{
+			userService: function($http){
+				// return $http.get('/business3')
+			}
+		},
+		controller: function(){
+			// whatever your controller will do
+		},
+		controllerAs: 'business4Ctrl'
+	})	
 
 })
 

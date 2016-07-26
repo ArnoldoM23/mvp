@@ -14,9 +14,8 @@ app.use(express.static(__dirname + '/../client'));
 app.get('/login', function(req, res){
 	var names = mongoUtils.names();//invoking database function to get users collection
 	names.find().toArray(function(err, docs){//storing the data in an array.
-		console.log()
-		var name = docs.map(function(obj){return obj.name})
-		res.json(name);
+		console.log(docs)
+		res.json(docs);
 	});
 });
 app.get('/signup', function(req, res){
@@ -26,8 +25,12 @@ app.get('/signup', function(req, res){
 });
 
 app.get('/home', function(req, res){
-		console.log('We out here home page')
+	business = mongoUtils.business();
+	business.find().toArray(function(err, data){
+		console.log('We out here home page', data)
 		res.json('We out here home page');
+
+	})
 })
 // listen for connection
 app.listen(8000, function(){

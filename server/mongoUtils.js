@@ -10,7 +10,7 @@ module.exports = {
 	// this is the connectin method .
 	connect(){
 		// connect the client to the db by invoking the connect function. It takes two parameters route to the db. syntax is  "mongodb:[localhost]:[port]/[name of db]. note the brackets are just to make example of what goes there, but you dont use the brackets. It takes a callback with two parameters and err and the db.
-		client.connect('mongodb://localhost:27017/MVP', function (err, db) {
+		client.connect('mongodb://localhost:27017/users', function (err, db) {
 			// check for error
 			if (err) {
 				console.log("Error connecting to mongodb")
@@ -25,5 +25,9 @@ module.exports = {
 	names(){
 		// simply return the db variable and invoke the collection method and pass in the name of the collection 
 		return _db.collection('users')
+	},
+	business(){
+		// simply return the db variable and invoke the collection method and pass in the name of the collection 
+		return _db.collection('business')
 	}
 }

@@ -27,7 +27,7 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 	.state('login', {
 		url: '/login',
 		templateUrl: 'app/login/login.html',
-		controller: function($scope, $http, $location){
+		controller: function($scope, $http, $location, $window){
 				$scope.username = '';
 				$scope.password = '';
 				$scope.submit = function(username, password){
@@ -43,8 +43,9 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 						url: '/login',
 						data: $scope.currentUser
 					}).then(function(resp){
+						$window.localStorage.setItem('OneStop', resp.data.token);
 						console.log("resp++++++", resp);
-						$location.path('/home')
+						$location.path('/user')
 					})
 					.catch(function(error){
 		        console.log(error)
@@ -61,7 +62,7 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 	.state('signup', {
 		url: '/signup',
 		templateUrl: 'app/login/signup.html',
-		controller: function($scope, $http, $location){
+		controller: function($scope, $http, $location, $window){
 				$scope.username = '';
 				$scope.email = '';
 				$scope.password = '';
@@ -81,7 +82,8 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 					})
 					.then(function(resp){
 						console.log('this is resp++++',resp)
-						$location.path('/home')
+						$window.localStorage.setItem('OneStop', resp.data.token); 
+						$location.path('/user')
 					})
 					.catch(function(error){
 		        console.log(error)
@@ -145,11 +147,24 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 			// whatever your controller will do
 		},
 		controllerAs: 'business4Ctrl'
+	})
+	.state('user',{
+		url:'/user',
+		templateUrl: 'app/users/user.html',
+		resolve:{
+			userService: function($http){
+				// return $http.get('/business3')
+			}
+		},
+		controller: function(){
+			// whatever your controller will do
+		},
+		controllerAs: 'userCtrl'
 	})	
 
 })
 
-.run(function($rootScope, $location){
+.run(function($rootScope, $location, $window){
 	$rootScope.log = function(){
 		console.log('location',$location)
 		$location.path('/login')	
@@ -158,6 +173,12 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 	$rootScope.signup = function(){
 		console.log('signup bruh')
 		$location.path('/signup')
+	}
+
+	$rootScope.logout = function(){
+		console.log('we login out')
+		$window.localStorage.removeItem('OneStop');
+		$location.path('/home')
 	}
 	// console.log('we out her running', $location)
 })

@@ -23,7 +23,7 @@ var UserSchema = new mongoose.Schema({
 		},
 		salt: String
 });
-
+// compare password method to check the user passwords.
 UserSchema.methods.comparePasswords = function(userpassword){
 	var defer = Q.defer();
 	var savedpassword = this.password;

@@ -1,5 +1,5 @@
 var User = require('./mongoUtils'),
-		Q    = require('q'),
+	Q    = require('q'),
     jwt  = require('jwt-simple');
 
 module.exports = {

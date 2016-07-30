@@ -63,9 +63,7 @@ angular.module('OneStop',["ui.router",'OneStop.Auth'])
 		url: '/signup',
 		templateUrl: 'app/login/signup.html',
 		controller: function($scope, $http, $location, $window){
-				$scope.username = '';
-				$scope.email = '';
-				$scope.password = '';
+				
 				// create user and http requestf
 				$scope.submit = function(usern, email, passwrd){
 					$scope.newUser = {
